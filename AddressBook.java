@@ -11,3 +11,7 @@ public class AddressBook {
 		friends = new Contact[10];
 		numfriends = 0;
     }
+	
+    public int numContacts() {
+	    return numfriends;
+    }
