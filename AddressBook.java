@@ -15,7 +15,7 @@ public class AddressBook {
         return numfriends;
     }
     public int haveContact(String s){
-        for(int i = 0;i<numfriends;i++){
+        for(int i = 0;i<numfriends-1;i++){
             if(friends[i].getName().equals(s)){
                 return i;
               }
@@ -43,34 +43,38 @@ public class AddressBook {
             }
     }
     public static void main(String args[]){
+        System.out.println("Hi");
         Scanner s = new Scanner(System.in);
-        String choice = s.next();
-        System.out.println("You can delete a contact, add a contact, print the contacts, or see if your list contains a contact.\n" + " What would you like to do?");
+        System.out.println("You can delete a contact (1), add a contact(2), print the contacts(3),see if your list contains a contact(4), or break(0).\n" + " What would you like to do?");
+        int choice = 10;
         AddressBook book = new AddressBook();
-        if(choice == "add"){
+        while(choice != 0){
+            choice = s.nextInt();
+            if(choice == 2){
             System.out.println("Imput name:");
             String name = s.next();
             System.out.println("Imput age: ");
             int age = s.nextInt();
             System.out.println("Imput phone number Ex:5135183026");
-            int number = s.nextInt();
+            int num = s.nextInt();
             System.out.println("Imput birthday date as month: ");
             int month = s.nextInt();
             System.out.println("Input Birthday date year: ");
             int year = s.nextInt();
-            Contact c = new Contact(name, age, number, month, year);
+            Contact c = new Contact(name, age, num, month, year);
             book.addContact(c);
         }
-        if(choice == "delete"){
+            if(choice == 1){
             System.out.println("What would you like to delete? ");
             String deleted = s.next();
             book.deleteContact(deleted);
         }
-        if(choice == "print"){
+        if(choice == 3){
             book.printContacts();
         }
-        if(choice == ("contains contact") || choice == ("has contact")){
+        if(choice == 4){
             String isIn = s.next();
-          }        
+          }      
         }
+    }
     }
